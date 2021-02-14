@@ -1,12 +1,20 @@
 const express = require('express');
+const { graphqlHTTP } = require('express-graphql');
+const { schema, rootValue } = require('./schema');
 
-const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => {
-  console.log(`Listening on PORT: ${PORT}.`);
-});
+const app = express();
 
-app.get('/', (req, res) => {
-  res.status(200).send('OK');
+app.use(
+  '/api',
+  graphqlHTTP({
+    schema,
+    rootValue,
+    graphiql: true,
+  }),
+);
+
+app.listen(PORT, () => {
+  console.log(`[ index.js ] Running express server with GQL on port ${PORT}`);
 });
