@@ -1,0 +1,22 @@
+{
+  "name": "rug-printing-queue",
+  "version": "1.0.0",
+  "description": "printing order calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "graphql",
+    "express",
+    "sqlite3"
+  ],
+  "author": "Saba Zikaria",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "sqlite3": "^5.0.1"
+  }
+}
