@@ -19,4 +19,17 @@ let db = new sqlite3.Database(DB_PATH, (err) => {
   });
 });
 
-module.exports = db
+const runQuery = ({ db, query, params = [] }) => new Promise((resolve, reject) => {
+  db.all(query, params, (error, rows) => {
+    if (error) {
+      return reject(error);
+    }
+
+    resolve(rows);
+  });
+});
+
+module.exports = {
+  db,
+  runQuery
+}
