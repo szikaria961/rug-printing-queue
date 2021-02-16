@@ -1,3 +1,15 @@
+const STARTING_POSITION = 1;
+const ROLL_WIDTH = 5;
+const RUNNER_DIMENSION = '2.5x7';
+const DIMENSION_DELIMITER = 'x';
+const ITEM_DELETE_COUNT = 1;
+
+const RUG_DIMENSION_MAPPINGS = {
+  '2.5x7': 7,
+  '3x5': 3,
+  '5x7': 7
+}
+
 const SELECT_ALL_TABLES = `SELECT * FROM "order" JOIN line_item ON "order".id = line_item.order_id JOIN component ON line_item.id = component.line_item_id`;
 
 const CREATE_TABLES = [
@@ -34,5 +46,11 @@ const INSERT_INTO_TABLES = [
 module.exports = {
   CREATE_TABLES,
   INSERT_INTO_TABLES,
-  SELECT_ALL_TABLES
+  SELECT_ALL_TABLES,
+  RUG_DIMENSION_MAPPINGS,
+  STARTING_POSITION,
+  ROLL_WIDTH,
+  RUNNER_DIMENSION,
+  DIMENSION_DELIMITER,
+  ITEM_DELETE_COUNT
 }

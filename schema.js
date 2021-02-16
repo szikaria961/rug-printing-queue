@@ -9,8 +9,7 @@ const schema = buildSchema(`
   }
 
   type Queue {
-    roll_id: Int
-    length: Float
+    roll_length: Float
     plan: [Plan]
   }
 
