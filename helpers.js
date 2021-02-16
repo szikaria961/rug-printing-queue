@@ -106,7 +106,7 @@ const getNextItemsToPrint = async ({
           size: rug.size,
           order_date: rug.order_date,
           sku: rug.sku,
-          rush: Boolean(rug.rush)
+          rush: rug.rush === 'true'
         });
 
         if (rug.isRunner && pairedRunners.length > 0) {
@@ -118,7 +118,7 @@ const getNextItemsToPrint = async ({
             size: topPairedRunner.size,
             order_date: topPairedRunner.order_date,
             sku: topPairedRunner.sku,
-            rush: Boolean(topPairedRunner.rush)
+            rush: topPairedRunner.rush === 'true'
           });
 
           pairedRunners = _.drop(pairedRunners);

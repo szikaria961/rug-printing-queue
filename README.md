@@ -2,6 +2,8 @@
 
 Graph API for generating a priority queue for rugs to be printed.
 
+Check out the live preview [here](https://rug-printing-queue.herokuapp.com/api)
+
 ## Installation
 
 ```
