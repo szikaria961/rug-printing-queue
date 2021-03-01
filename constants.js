@@ -10,7 +10,7 @@ const RUG_DIMENSION_MAPPINGS = {
   '5x7': 7
 }
 
-const SELECT_ALL_TABLES = `SELECT * FROM "order" JOIN line_item ON "order".id = line_item.order_id JOIN component ON line_item.id = component.line_item_id`;
+const SELECT_ALL_TABLES = `SELECT * FROM "order" JOIN line_item ON "order".id = line_item.order_id JOIN component ON line_item.id = component.line_item_id WHERE "order".cancelled == 'false' AND component.status == 'Pending' ORDER BY "order".order_date`;
 
 const CREATE_TABLES = [
   `create table if not exists "order" ( id serial not null constraint order_pk primary key, order_number integer not null, order_date timestamp not null, cancelled boolean default false not null );`,

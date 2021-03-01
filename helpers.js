@@ -12,13 +12,6 @@ const {
   ITEM_DELETE_COUNT
 } = require('./constants');
 
-const filterNotCancelledAndPending = row => {
-  const isNotCancelled = row.cancelled === 'false';
-  const isPending = row.status === 'Pending';
-
-  return isNotCancelled && isPending;
-}
-
 const filterRushConditions = row => {
   const isNonRushedRug = row.rush === 'false';
 
@@ -57,14 +50,11 @@ const getNextItemsToPrint = async ({
       .map(row => {
         return {
           ...row,
-          orderDateInMs: moment(row.order_date).valueOf(),
           includeRush,
           ...getPrintingDetails(row)
         }
       })
-      .filter(filterNotCancelledAndPending)
       .filter(filterRushConditions)
-      .sortBy('orderDateInMs')
       .partition(partitionRushedRugBuckets)
       .value();
 
